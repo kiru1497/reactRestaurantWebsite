@@ -1,12 +1,12 @@
 import "./Header.css";
 
-function Header() {
+function Header(props) {
   return (
     <header className="header">
       <div className="header-content">
         <h1 className="logo">ReactMeals</h1>
 
-        <button className="cart-button">
+        <button className="cart-button" onClick={props.onShowCart}>
           <span className="cart-icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +27,7 @@ function Header() {
 
           <span className="cart-text">Your Cart</span>
 
-          <span className="cart-count">0</span>
+          <span className="cart-count">{props.cartItemCount}</span>
         </button>
       </div>
     </header>

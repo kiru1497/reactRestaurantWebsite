@@ -4,7 +4,6 @@ import "./MealItemForm.css";
 
 function MealItemForm(props) {
   const [amount, setAmount] = useState(1);
-  const [addedAmount, setAddedAmount] = useState(0);
 
   const amountChangeHandler = (event) => {
     setAmount(event.target.value);
@@ -19,13 +18,7 @@ function MealItemForm(props) {
       return;
     }
 
-    setAddedAmount((previousAmount) => {
-      return previousAmount + enteredAmount;
-    });
-
-    if (props.onAddToCart) {
-      props.onAddToCart(enteredAmount);
-    }
+    props.onAddToCart(enteredAmount);
   };
 
   return (
@@ -41,9 +34,9 @@ function MealItemForm(props) {
         onChange={amountChangeHandler}
       />
 
-      {addedAmount > 0 && (
+      {props.addedAmount > 0 && (
         <p className="added-amount">
-          Added: <strong>{addedAmount}</strong>
+          Added: <strong>{props.addedAmount}</strong>
         </p>
       )}
 

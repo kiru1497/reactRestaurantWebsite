@@ -41,19 +41,27 @@ const dummyMeals = [
   },
 ];
 
-function AvailableMeals() {
+function AvailableMeals(props) {
   return (
     <section className="available-meals">
       <Card>
-        {dummyMeals.map((meal) => (
-          <MealItem
-            key={meal.id}
-            id={meal.id}
-            name={meal.name}
-            description={meal.description}
-            price={meal.price}
-          />
-        ))}
+        {dummyMeals.map((meal) => {
+          const cartItem = props.cartItems.find((item) => item.id === meal.id);
+
+          const addedAmount = cartItem ? cartItem.amount : 0;
+
+          return (
+            <MealItem
+              key={meal.id}
+              id={meal.id}
+              name={meal.name}
+              description={meal.description}
+              price={meal.price}
+              onAddToCart={props.onAddToCart}
+              addedAmount={addedAmount}
+            />
+          );
+        })}
       </Card>
     </section>
   );
