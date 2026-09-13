@@ -1,0 +1,21 @@
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-container label {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.input-container input {
+  width: 55px;
+  padding: 8px;
+
+  border: 1px solid #ccc;
+  border-radius: 6px;
+
+  font-size: 1rem;
+  text-align: center;
+}

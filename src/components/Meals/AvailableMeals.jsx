@@ -1,4 +1,5 @@
 import Card from "../UI/Card";
+import MealItem from "./MealItem";
 import "./AvailableMeals.css";
 
 const dummyMeals = [
@@ -45,17 +46,13 @@ function AvailableMeals() {
     <section className="available-meals">
       <Card>
         {dummyMeals.map((meal) => (
-          <div className="meal-item" key={meal.id}>
-            <div className="meal-info">
-              <h3>{meal.name}</h3>
-
-              <p className="meal-description">{meal.description}</p>
-
-              <p className="meal-price">${meal.price.toFixed(2)}</p>
-            </div>
-
-            <button className="add-button">+ Add</button>
-          </div>
+          <MealItem
+            key={meal.id}
+            id={meal.id}
+            name={meal.name}
+            description={meal.description}
+            price={meal.price}
+          />
         ))}
       </Card>
     </section>

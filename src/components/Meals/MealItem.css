@@ -1,0 +1,41 @@
+.meal-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid #ddd;
+}
+
+.meal-item:last-child {
+  border-bottom: none;
+}
+
+.meal-info {
+  flex: 1;
+}
+
+.meal-info h3 {
+  margin: 0 0 8px;
+
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.meal-description {
+  margin: 0 0 10px;
+
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #333;
+}
+
+.meal-price {
+  margin: 0;
+
+  font-size: 1.2rem;
+  font-weight: 700;
+
+  color: #8a2b06;
+}
