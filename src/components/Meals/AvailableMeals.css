@@ -1,0 +1,64 @@
+.available-meals {
+  width: 100%;
+  padding-bottom: 60px;
+}
+
+.meal-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid #ddd;
+}
+
+.meal-item:last-child {
+  border-bottom: none;
+}
+
+.meal-info h3 {
+  margin: 0 0 8px;
+
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.meal-description {
+  margin: 0 0 10px;
+
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #333;
+}
+
+.meal-price {
+  margin: 0;
+
+  font-size: 1.2rem;
+  font-weight: 700;
+
+  color: #8a2b06;
+}
+
+.add-button {
+  padding: 10px 24px;
+
+  border: 1px solid #8a2b06;
+  border-radius: 20px;
+
+  background-color: white;
+  color: #8a2b06;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.add-button:hover {
+  background-color: #8a2b06;
+  color: white;
+}

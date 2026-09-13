@@ -1,6 +1,8 @@
+import "./App.css";
+
 import Header from "./components/Layout/Header";
 import MealsSummary from "./components/Meals/MealsSummary";
-import "./App.css";
+import AvailableMeals from "./components/Meals/AvailableMeals";
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
         <div className="hero-image"></div>
 
         <MealsSummary />
+
+        <AvailableMeals />
       </main>
     </div>
   );
