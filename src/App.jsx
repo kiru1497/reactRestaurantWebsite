@@ -9,7 +9,6 @@ import Cart from "./components/Cart/Cart";
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
-
   const [cartItems, setCartItems] = useState([]);
 
   const showCartHandler = () => {
@@ -41,6 +40,50 @@ function App() {
     });
   };
 
+  // Add exactly one item from inside the cart
+  const addSingleItemHandler = (id) => {
+    setCartItems((previousItems) => {
+      return previousItems.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            amount: item.amount + 1,
+          };
+        }
+
+        return item;
+      });
+    });
+  };
+
+  // Remove exactly one item from inside the cart
+  const removeSingleItemHandler = (id) => {
+    setCartItems((previousItems) => {
+      const existingItem = previousItems.find((item) => item.id === id);
+
+      if (!existingItem) {
+        return previousItems;
+      }
+
+      // If only one remains, remove the entire item
+      if (existingItem.amount === 1) {
+        return previousItems.filter((item) => item.id !== id);
+      }
+
+      // Otherwise decrease quantity by 1
+      return previousItems.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            amount: item.amount - 1,
+          };
+        }
+
+        return item;
+      });
+    });
+  };
+
   const orderHandler = () => {
     setCartItems([]);
     setCartIsShown(false);
@@ -61,6 +104,8 @@ function App() {
           items={cartItems}
           onClose={hideCartHandler}
           onOrder={orderHandler}
+          onAddItem={addSingleItemHandler}
+          onRemoveItem={removeSingleItemHandler}
         />
       )}
 

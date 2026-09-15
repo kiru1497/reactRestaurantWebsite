@@ -40,9 +40,29 @@ function Cart(props) {
                     <div className="cart-item-info">
                       <h3>{item.name}</h3>
 
-                      <p>
-                        {item.amount} × ${item.price.toFixed(2)}
+                      <p className="cart-item-price">
+                        ${item.price.toFixed(2)}
                       </p>
+                    </div>
+
+                    <div className="cart-item-controls">
+                      <span className="cart-item-amount">x {item.amount}</span>
+
+                      <button
+                        className="quantity-button"
+                        onClick={() => props.onRemoveItem(item.id)}
+                        aria-label={`Remove one ${item.name}`}
+                      >
+                        −
+                      </button>
+
+                      <button
+                        className="quantity-button quantity-button-add"
+                        onClick={() => props.onAddItem(item.id)}
+                        aria-label={`Add one more ${item.name}`}
+                      >
+                        +
+                      </button>
                     </div>
 
                     <p className="cart-item-total">${itemTotal.toFixed(2)}</p>
@@ -52,8 +72,7 @@ function Cart(props) {
             </div>
 
             <div className="cart-total">
-              <span>Total</span>
-
+              <span>Total Amount</span>
               <span>${totalAmount.toFixed(2)}</span>
             </div>
 
